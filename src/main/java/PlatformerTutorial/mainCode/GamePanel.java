@@ -1,16 +1,20 @@
 package PlatformerTutorial.mainCode;
 
 import PlatformerTutorial.inputs.KeyboardInputs;
+import PlatformerTutorial.inputs.MouseInputs;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel {
 
+    private MouseInputs mouseInputs;
     public GamePanel() {
 
+        mouseInputs = new MouseInputs();
         addKeyListener(new KeyboardInputs());
-        addMouseListener(null);
+        addMouseListener(mouseInputs);
+        addMouseMotionListener(mouseInputs);
     }
 
     public void paintComponent(Graphics g) {
