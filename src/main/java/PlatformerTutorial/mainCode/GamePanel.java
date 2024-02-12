@@ -10,6 +10,7 @@ public class GamePanel extends JPanel {
     public GamePanel() {
 
         addKeyListener(new KeyboardInputs());
+        addMouseListener(null);
     }
 
     public void paintComponent(Graphics g) {
