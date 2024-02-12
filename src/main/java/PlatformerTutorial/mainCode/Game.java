@@ -1,4 +1,4 @@
-package PlatformerTutorial;
+package PlatformerTutorial.mainCode;
 
 public class Game {
 
