@@ -1,4 +1,4 @@
-package PlatformerTutorial;
+package PlatformerTutorial.mainCode;
 
 public class Game {
 
@@ -7,5 +7,6 @@ public class Game {
     public Game() {
         gamePanel = new GamePanel();
         gameWindow = new GameWindow(gamePanel);
+        gamePanel.requestFocus();
     }
 }
