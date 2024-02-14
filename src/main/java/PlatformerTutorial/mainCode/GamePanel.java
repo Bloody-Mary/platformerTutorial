@@ -32,6 +32,7 @@ public class GamePanel extends JPanel {
     public void setRectPos(int x, int y) {
         this.xDelta = x;
         this.yDelta = y;
+        repaint();
     }
 
     public void paintComponent(Graphics g) {
