@@ -36,6 +36,7 @@ public class GamePanel extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        updateRectangle();
         g.fillRect(xDelta, yDelta, 200, 50);
         frames++;
         if (System.currentTimeMillis() - lastCheck >= 1000) {
@@ -45,4 +46,10 @@ public class GamePanel extends JPanel {
         }
         repaint();
     }
+
+    private void updateRectangle() {
+        xDelta++;
+        yDelta++;
+    }
+
 }
