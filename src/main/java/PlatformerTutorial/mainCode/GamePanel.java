@@ -61,6 +61,7 @@ public class GamePanel extends JPanel {
         yDelta+= yDir;
         if (yDelta > 400 || yDelta < 0) {
             yDir *= -1;
+            color = getRandColor();
         }
     }
 
