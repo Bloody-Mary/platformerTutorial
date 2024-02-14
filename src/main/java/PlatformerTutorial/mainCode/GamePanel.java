@@ -54,11 +54,19 @@ public class GamePanel extends JPanel {
         xDelta += xDir;
         if (xDelta > 400 || xDelta < 0) {
             xDir *= -1;
+            color = getRandColor();
         }
         yDelta+= yDir;
         if (yDelta > 400 || yDelta < 0) {
             yDir *= -1;
         }
+    }
+
+    private Color getRandColor() {
+        int red = 0;
+        int green = 0;
+        int blue = 0;
+        return new Color(red,green, blue);
     }
 
 }
