@@ -9,6 +9,8 @@ import java.awt.*;
 public class GamePanel extends JPanel {
 
     private MouseInputs mouseInputs;
+    private int xDelta = 0;
+    private int yDelta = 0;
     public GamePanel() {
 
         mouseInputs = new MouseInputs();
@@ -20,6 +22,6 @@ public class GamePanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.fillRect(100, 100, 200, 50);
+        g.fillRect(100 + xDelta, 100 + yDelta, 200, 50);
     }
 }
