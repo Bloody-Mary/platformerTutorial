@@ -5,6 +5,7 @@ import PlatformerTutorial.inputs.MouseInputs;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Random;
 
 public class GamePanel extends JPanel {
 
@@ -14,9 +15,10 @@ public class GamePanel extends JPanel {
     private int frames = 0;
     private long lastCheck = 0;
     private Color color = new Color(150, 20, 85);
+    private Random random;
 
     public GamePanel() {
-
+        random = new Random();
         mouseInputs = new MouseInputs(this);
         addKeyListener(new KeyboardInputs(this));
         addMouseListener(mouseInputs);
@@ -63,9 +65,9 @@ public class GamePanel extends JPanel {
     }
 
     private Color getRandColor() {
-        int red = 0;
-        int green = 0;
-        int blue = 0;
+        int red = random.nextInt(255);
+        int green = random.nextInt(255);
+        int blue = random.nextInt(255);
         return new Color(red,green, blue);
     }
 
