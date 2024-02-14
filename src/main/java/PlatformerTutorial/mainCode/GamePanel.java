@@ -50,8 +50,14 @@ public class GamePanel extends JPanel {
     }
 
     private void updateRectangle() {
-        xDelta++;
-        yDelta++;
+        xDelta += xDir;
+        if (xDelta > 400 || xDelta < 0) {
+            xDir *= -1;
+        }
+        yDelta+= yDir;
+        if (yDelta > 400 || yDelta < 0) {
+            yDir *= -1;
+        }
     }
 
 }
