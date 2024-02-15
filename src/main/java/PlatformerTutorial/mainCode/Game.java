@@ -11,4 +11,21 @@ public class Game implements Runnable{
         gameWindow = new GameWindow(gamePanel);
         gamePanel.requestFocus();
     }
+
+    @Override
+    public void run() {
+
+        //frame duration
+        double timePerFrame = 1000000000.0 / FPS_SET;
+
+        long lastFrame = System.nanoTime();
+        long now = System.nanoTime();
+        while (true) {
+            now = System.nanoTime();
+            if (now - lastFrame >= timePerFrame) {
+                gamePanel.repaint();
+                lastFrame = now;
+            }
+        }
+    }
 }
