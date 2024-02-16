@@ -12,6 +12,10 @@ public class Game implements Runnable{
         gamePanel.requestFocus();
     }
 
+    private void startGameLoop() {
+        gameThread = new Thread(this);
+    }
+
     @Override
     public void run() {
 
