@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import static PlatformerTutorial.utils.Constants.PlayerConstants.*;
+import static PlatformerTutorial.utils.Constants.Directions.*;
 
 public class GamePanel extends JPanel {
 
@@ -20,6 +21,7 @@ public class GamePanel extends JPanel {
     private BufferedImage[][] animations;
     private int animationTick, animationIndex, animationSpeed = 15;
     private int playerAction = IDLE;
+    private int playerDir = -1;
 
     public GamePanel() {
         mouseInputs = new MouseInputs(this);
@@ -61,19 +63,9 @@ public class GamePanel extends JPanel {
         setPreferredSize(size);
     }
 
-    public void changeXDelta(int value) {
-        this.xDelta += value;
+    public void setDirection(int direction) {
+        this.playerAction = direction;
     }
-
-    public void changeYDelta(int value) {
-        this.yDelta += value;
-    }
-
-    public void setRectPos(int x, int y) {
-        this.xDelta = x;
-        this.yDelta = y;
-    }
-
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         updateAnimationTick();
