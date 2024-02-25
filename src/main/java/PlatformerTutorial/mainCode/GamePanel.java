@@ -22,6 +22,7 @@ public class GamePanel extends JPanel {
     private int animationTick, animationIndex, animationSpeed = 15;
     private int playerAction = IDLE;
     private int playerDir = -1;
+    private boolean moving = false;
 
     public GamePanel() {
         mouseInputs = new MouseInputs(this);
@@ -64,7 +65,12 @@ public class GamePanel extends JPanel {
     }
 
     public void setDirection(int direction) {
-        this.playerAction = direction;
+        this.playerDir = direction;
+        moving = true;
+    }
+
+    public void setMoving(boolean moving) {
+        this.moving = moving;
     }
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
