@@ -85,7 +85,7 @@ public class GamePanel extends JPanel {
         if (animationTick >= animationSpeed) {
             animationTick = 0;
             animationIndex++;
-            if (animationIndex >= 6) {
+            if (animationIndex >= GetSpriteAmount(playerAction)) {
                 animationIndex = 0;
             }
         }
