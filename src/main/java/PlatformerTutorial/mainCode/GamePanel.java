@@ -10,6 +10,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 
+import static PlatformerTutorial.utils.Constants.PlayerConstants.*;
+
 public class GamePanel extends JPanel {
 
     private MouseInputs mouseInputs;
@@ -17,6 +19,7 @@ public class GamePanel extends JPanel {
     private BufferedImage img;
     private BufferedImage[][] animations;
     private int animationTick, animationIndex, animationSpeed = 15;
+    private int playerAction = IDLE;
 
     public GamePanel() {
         mouseInputs = new MouseInputs(this);
@@ -74,7 +77,7 @@ public class GamePanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         updateAnimationTick();
-        g.drawImage(animations[1][animationIndex], (int) xDelta, (int) yDelta, 120, 80, null);
+        g.drawImage(animations[playerAction][animationIndex], (int) xDelta, (int) yDelta, 120, 80, null);
     }
 
     private void updateAnimationTick() {
