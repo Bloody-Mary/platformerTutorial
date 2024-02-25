@@ -74,17 +74,17 @@ public class GamePanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         updateAnimationTick();
-        g.drawImage(animations[7][1], (int) xDelta, (int) yDelta, 120, 80, null);
+        g.drawImage(animations[1][animationIndex], (int) xDelta, (int) yDelta, 120, 80, null);
     }
 
     private void updateAnimationTick() {
-//        animationTick++;
-//        if (animationTick >= animationSpeed) {
-//            animationTick = 0;
-//            animationIndex++;
-//            if (animationIndex >= idleAnimation.length) {
-//                animationIndex = 0;
-//            }
-//        }
+        animationTick++;
+        if (animationTick >= animationSpeed) {
+            animationTick = 0;
+            animationIndex++;
+            if (animationIndex >= 6) {
+                animationIndex = 0;
+            }
+        }
     }
 }
