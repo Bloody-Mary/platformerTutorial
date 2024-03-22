@@ -1,33 +1,46 @@
 package PlatformerTutorial.mainCode;
 
+import PlatformerTutorial.entities.Player;
+
+import java.awt.*;
+
 public class Game implements Runnable{
 
-    private GameWindow gameWindow;
-    private GamePanel gamePanel;
-    private Thread gameThread;
-    private final int FPS_SET = 120;
-    private final int UPS_SET = 200;
+    private final GamePanel gamePanel;
+    private Player player;
+
     public Game() {
-        gamePanel = new GamePanel();
-        gameWindow = new GameWindow(gamePanel);
+        initClasses();
+        gamePanel = new GamePanel(this);
+        GameWindow gameWindow = new GameWindow(gamePanel);
         gamePanel.requestFocus();
         startGameLoop();
     }
 
+    private void initClasses() {
+        player = new Player(200, 200);
+    }
+
     private void startGameLoop() {
-        gameThread = new Thread(this);
+        Thread gameThread = new Thread(this);
         gameThread.start();
     }
 
     public void update() {
-      gamePanel.updateGame();
+        player.update();
+    }
+
+    public void render(Graphics g) {
+        player.render(g);
     }
 
     @Override
     public void run() {
 
         //frame duration
+        int FPS_SET = 120;
         double timePerFrame = 1000000000.0 / FPS_SET;
+        int UPS_SET = 200;
         double timePerUpdate = 1000000000.0 / UPS_SET;
         long previousTime = System.nanoTime();
         int frames = 0;
@@ -61,5 +74,9 @@ public class Game implements Runnable{
                 updates = 0;
             }
         }
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }
