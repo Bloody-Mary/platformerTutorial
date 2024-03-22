@@ -14,7 +14,7 @@ public class Player extends Entity{
     private BufferedImage[][] animations;
     private int animationTick, animationIndex, animationSpeed = 15;
     private int playerAction = IDLE;
-    private int playerDir = -1;
+    private boolean left, up, right, down;
     private boolean moving = false;
     public Player(float x, float y) {
         super(x, y);
@@ -50,11 +50,6 @@ public class Player extends Entity{
                 e.printStackTrace();
             }
         }
-    }
-
-    public void setDirection(int direction) {
-        this.playerDir = direction;
-        moving = true;
     }
 
     public void setMoving(boolean moving) {
