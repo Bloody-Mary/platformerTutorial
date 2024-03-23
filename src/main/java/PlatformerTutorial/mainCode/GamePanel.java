@@ -2,6 +2,7 @@ package PlatformerTutorial.mainCode;
 
 import PlatformerTutorial.inputs.KeyboardInputs;
 import PlatformerTutorial.inputs.MouseInputs;
+import PlatformerTutorial.mainCode.Game.*;
 
 
 import javax.swing.*;
@@ -20,8 +21,9 @@ public class GamePanel extends JPanel {
     }
 
     private void setPanelSize() {
-        Dimension size = new Dimension(1280, 800);
+        Dimension size = new Dimension(Game.GAME_WIDTH, Game.GAME_HEIGHT);
         setPreferredSize(size);
+        System.out.println("size: " + Game.GAME_WIDTH + " : " + Game.GAME_HEIGHT);
     }
 
     public void updateGame() {
