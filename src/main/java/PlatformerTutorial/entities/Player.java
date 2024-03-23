@@ -6,8 +6,6 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 
-import static PlatformerTutorial.utils.Constants.Directions.*;
-import static PlatformerTutorial.utils.Constants.Directions.DOWN;
 import static PlatformerTutorial.utils.Constants.PlayerConstants.*;
 
 public class Player extends Entity{
@@ -16,7 +14,7 @@ public class Player extends Entity{
     private int playerAction = IDLE;
     private boolean left, up, right, down;
     private float playerSpeed = 2.0f;
-    private boolean moving = false;
+    private boolean moving = false, attacking = false;
     public Player(float x, float y) {
         super(x, y);
         loadAnimations();
@@ -60,16 +58,31 @@ public class Player extends Entity{
             animationIndex++;
             if (animationIndex >= GetSpriteAmount(playerAction)) {
                 animationIndex = 0;
+                attacking = false;
             }
         }
     }
 
     private void setAnimation() {
+        int startAnimation = playerAction;
         if(moving) {
             playerAction = RUNNING;
         } else {
             playerAction = IDLE;
         }
+
+        if (attacking) {
+            playerAction = ATTACK_1;
+        }
+
+        if (startAnimation != playerAction) {
+            resetAnimationTick();
+        }
+    }
+
+    private void resetAnimationTick() {
+        animationTick = 0;
+        animationIndex = 0;
     }
 
     private void updatePosition() {
@@ -96,6 +109,10 @@ public class Player extends Entity{
        right = false;
        up = false;
        down = false;
+    }
+
+    public void setAttacking(boolean attacking) {
+        this.attacking = attacking;
     }
 
     public boolean isLeft() {
