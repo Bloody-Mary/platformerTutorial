@@ -2,17 +2,18 @@ package PlatformerTutorial.mainCode;
 
 import PlatformerTutorial.inputs.KeyboardInputs;
 import PlatformerTutorial.inputs.MouseInputs;
-import PlatformerTutorial.mainCode.Game.*;
 
 
 import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel {
+
+    private MouseInputs mouseInputs;
     private Game game;
 
     public GamePanel(Game game) {
-        MouseInputs mouseInputs = new MouseInputs(this);
+        mouseInputs = new MouseInputs(this);
         this.game = game;
         setPanelSize();
         addKeyListener(new KeyboardInputs(this));
@@ -23,10 +24,10 @@ public class GamePanel extends JPanel {
     private void setPanelSize() {
         Dimension size = new Dimension(Game.GAME_WIDTH, Game.GAME_HEIGHT);
         setPreferredSize(size);
-        System.out.println("size: " + Game.GAME_WIDTH + " : " + Game.GAME_HEIGHT);
     }
 
     public void updateGame() {
+
     }
 
     public void paintComponent(Graphics g) {
@@ -37,4 +38,5 @@ public class GamePanel extends JPanel {
     public Game getGame() {
         return game;
     }
+
 }
